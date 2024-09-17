@@ -2,8 +2,7 @@ module Test.Main where
 
 import Prelude
 import Test.MySolutions
-import Test.NoPeeking.Solutions  -- This line should have been automatically deleted by resetSolutions.sh. See Chapter 2 for instructions.
-import Data.AddressBook (AddressBook, Entry, emptyBook, findEntry, insertEntry)
+import Data.AddressBook (AddressBook, Entry, emptyBook, findEntry, insertEntry, findEntryByStreet, isInBook, removeDuplicates)
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Test.Unit (TestSuite, suite, test)
@@ -60,8 +59,6 @@ main :: Effect Unit
 main =
   runTest do
     runChapterExamples
-    {-  Move this block comment starting point to enable more tests
-This line should have been automatically deleted by resetSolutions.sh. See Chapter 2 for instructions. -}
     suite "Exercise - findEntryByStreet" do
       test "Lookup existing" do
         Assert.equal (Just john)
@@ -80,8 +77,6 @@ This line should have been automatically deleted by resetSolutions.sh. See Chapt
       Assert.equal book
         $ removeDuplicates bookWithDuplicate
 
-{- This line should have been automatically deleted by resetSolutions.sh. See Chapter 2 for instructions.
--}
 runChapterExamples :: TestSuite
 runChapterExamples = do
   test "Todo for book maintainers - Add tests for chapter examples" do
